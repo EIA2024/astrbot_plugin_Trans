@@ -1,0 +1,9 @@
+# AstrBot插件依赖
+astrbot>=1.0.0
+
+# 标准库依赖（Python内置，无需额外安装）
+# - sys
+# - argparse  
+# - logging
+# - asyncio
+# - typing 
