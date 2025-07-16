@@ -97,12 +97,15 @@ class TransTranslatorPlugin(Star):
         # 移除命令前缀，支持多种格式
         text_to_encode = full_message
         
+        # 改进示例
+
+
         # 移除 /encode 前缀
-        if text_to_encode.startswith('/encode'):
-            text_to_encode = text_to_encode[7:].strip()
+        if text_to_encode.startswith('/encode '):
+            text_to_encode = text_to_encode.removeprefix('/encode ').strip()
         # 移除 encode 前缀（不带斜杠）
-        elif text_to_encode.startswith('encode '):
-            text_to_encode = text_to_encode[7:].strip()
+        elif text_to_encode.startswith('/encode'):
+            text_to_encode = text_to_encode.removeprefix('/encode').strip()
         
         # 调试信息
         logger.info(f"完整消息: '{full_message}'")
@@ -129,11 +132,11 @@ class TransTranslatorPlugin(Star):
         text_to_decode = full_message
         
         # 移除 /decode 前缀
-        if text_to_decode.startswith('/decode'):
-            text_to_decode = text_to_decode[7:].strip()
+        if text_to_decode.startswith('/decode '):
+            text_to_decode = text_to_decode.removeprefix('/decode ').strip()
         # 移除 decode 前缀（不带斜杠）
-        elif text_to_decode.startswith('decode '):
-            text_to_decode = text_to_decode[7:].strip()
+        elif text_to_decode.startswith('/decode'):
+            text_to_decode = text_to_decode.removeprefix('/decode').strip()
         
         # 调试信息
         logger.info(f"完整消息: '{full_message}'")
@@ -153,7 +156,7 @@ class TransTranslatorPlugin(Star):
             logger.error(f"解码过程中发生错误：{e}")
             yield event.plain_result(f"解码失败：{str(e)}")
 
-    @filter.command("Trans_help")
+    @filter.command("trans_help")
     async def show_help(self, event: AstrMessageEvent):
         """显示哦齁语翻译器的使用帮助"""
         help_text = """哦齁语翻译器使用帮助：
@@ -169,7 +172,7 @@ class TransTranslatorPlugin(Star):
 /decode 咕～嗯咿嗯哼嗯哼嗯呼噢哼噢齁啊啊嗯呼啊噢嗯哼嗯咕噢哦
 
 ❓ 帮助：
-/Trans_help - 显示此帮助信息
+/trans_help - 显示此帮助信息
 
 基于 https://msbt.seku.su/ 的编码解码功能"""
         
