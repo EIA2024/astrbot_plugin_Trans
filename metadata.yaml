@@ -1,5 +1,5 @@
 name: Trans # 这是你的插件的唯一识别名。
-desc: 哦齁～❤语翻译器，基于https://msbt.seku.su提出的的编码解码功能 # 插件简短描述
+desc: 哦齁噢喔～语翻译器，基于https://msbt.seku.su提出的的编码解码功能 # 插件简短描述
 version: v1.0 # 插件版本号。格式：v1.1.1 或者 v1.1
 author: EIA # 作者
 repo: https://github.com/EIA2024/astrbot_plugin_Trans # 插件的仓库地址
