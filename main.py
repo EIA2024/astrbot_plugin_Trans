@@ -105,7 +105,7 @@ class TransTranslatorPlugin(Star):
             text_to_encode = text_to_encode.removeprefix('/encode ').strip()
         # 移除 encode 前缀（不带斜杠）
         elif text_to_encode.startswith('encode'):
-            text_to_encode = text_to_encode.removeprefix('/encode').strip()
+            text_to_encode = text_to_encode.removeprefix('encode').strip()
         
         # 调试信息
         logger.info(f"完整消息: '{full_message}'")
@@ -136,7 +136,7 @@ class TransTranslatorPlugin(Star):
             text_to_decode = text_to_decode.removeprefix('/decode ').strip()
         # 移除 decode 前缀（不带斜杠）
         elif text_to_decode.startswith('decode'):
-            text_to_decode = text_to_decode.removeprefix('/decode').strip()
+            text_to_decode = text_to_decode.removeprefix('decode').strip()
         
         # 调试信息
         logger.info(f"完整消息: '{full_message}'")
